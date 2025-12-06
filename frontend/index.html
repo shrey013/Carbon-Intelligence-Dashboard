@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Intelligence Dashboard | Stride Labs 2025</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Warming up live carbon intelligence...</p>
+  </div>
+
+  <div class="container">
+    <!-- HEADER / HERO -->
+    <header>
+      <div class="header-content">
+        <!-- Left: Title + pills + dev info -->
+        <div class="logo-block">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-earth-asia"></i>
+            </div>
+            <div>
+              <h1>Carbon Intelligence Dashboard</h1>
+              <p class="subtitle">
+                Interactive emissions overview by sector, with guided AI insights.
+              </p>
+            </div>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill pill-green">
+              <i class="fas fa-leaf"></i> Net-zero aligned
+            </span>
+            <span class="pill pill-blue">
+              <i class="fas fa-wave-square"></i> Live-style metrics
+            </span>
+            <span class="pill pill-amber">
+              <i class="fas fa-robot"></i> AI assistant + FAQ
+            </span>
+          </div>
+
+          <div class="developer-info">
+            <p><strong>Developer:</strong> Shreyansh Saurav</p>
+            <p><strong>Email:</strong> shreyanshsaurav0786@gmail.com</p>
+            <p class="project-info">
+              Stride Labs: HackForward 2025 – Round 2 Submission
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: CSS-only Earth hero visual -->
+        <div class="hero-visual">
+          <div class="hero-planet-orbit">
+            <div class="hero-orbit-ring"></div>
+            <div class="hero-globe"></div>
+            <div class="hero-badge hero-badge-top">
+              <i class="fas fa-cloud"></i>
+              <span>95.8 Gt CO₂e / yr</span>
+            </div>
+            <div class="hero-badge hero-badge-bottom">
+              <i class="fas fa-arrow-trend-up"></i>
+              <span>+1.15°C vs pre-industrial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ACTION POPUP + ANIMATED STEPS -->
+    <section class="action-banner">
+      <!-- Floating popup pill -->
+      <div class="action-pill">
+        <div class="action-pill-left">
+          <span class="pill-tag">
+            <i class="fas fa-circle-exclamation"></i>
+            High emissions detected
+          </span>
+          <h2>How to reduce this & help save Earth</h2>
+          <p>
+            Follow these 4 simple climate actions. Each small step lowers your
+            footprint and supports a net-zero future.
+          </p>
+        </div>
+        <div class="action-pill-right">
+          <span class="impact-label">
+            Potential reduction
+          </span>
+          <span class="impact-value">
+            <i class="fas fa-bolt"></i> Up to 40% CO₂e
+          </span>
+        </div>
+      </div>
+
+      <!-- Animated step timeline -->
+      <div class="action-steps">
+        <div class="action-step step-1">
+          <div class="step-dot">1</div>
+          <div class="step-content">
+            <h3>Measure & Monitor</h3>
+            <p>
+              Map emissions from energy, transport and industry. Use dashboards
+              and live data instead of guesses.
+            </p>
+          </div>
+        </div>
+
+        <div class="action-step step-2">
+          <div class="step-dot">2</div>
+          <div class="step-content">
+            <h3>Cut Energy Waste</h3>
+            <p>
+              Upgrade to efficient machines, switch off idle loads and optimise
+              process schedules to use less power.
+            </p>
+          </div>
+        </div>
+
+        <div class="action-step step-3">
+          <div class="step-dot">3</div>
+          <div class="step-content">
+            <h3>Switch to Clean Power</h3>
+            <p>
+              Add solar, wind or green power contracts. Every kWh of renewables
+              replaces fossil-based emissions.
+            </p>
+          </div>
+        </div>
+
+        <div class="action-step step-4">
+          <div class="step-dot">4</div>
+          <div class="step-content">
+            <h3>Offset & Involve People</h3>
+            <p>
+              Support verified carbon projects and train people to make low-carbon
+              choices at work and at home.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- METRICS STRIP -->
+      <section class="metrics-section">
+        <div class="metric-card">
+          <div class="metric-icon metric-icon-red">
+            <i class="fas fa-cloud-showers-heavy"></i>
+          </div>
+          <div class="metric-content">
+            <h3>Global Emissions (CO₂e)</h3>
+            <div class="metric-value" id="global-emissions">95.8 Gt CO₂</div>
+            <p class="metric-trend negative" id="global-emissions-trend">
+              +2.1% vs last year
+            </p>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon metric-icon-amber">
+            <i class="fas fa-temperature-high"></i>
+          </div>
+          <div class="metric-content">
+            <h3>Temperature Rise</h3>
+            <div class="metric-value" id="temperature">+1.15°C</div>
+            <p class="metric-trend">Above pre-industrial baseline</p>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon metric-icon-green">
+            <i class="fas fa-industry"></i>
+          </div>
+          <div class="metric-content">
+            <h3>Top Emitting Sector</h3>
+            <div class="metric-value">Energy</div>
+            <p class="metric-trend">35.8 Gt CO₂e / yr</p>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon metric-icon-blue">
+            <i class="fas fa-solar-panel"></i>
+          </div>
+          <div class="metric-content">
+            <h3>Renewables Share</h3>
+            <div class="metric-value">30%</div>
+            <p class="metric-trend positive">Growing year-on-year</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHART + CHAT + CALCULATOR -->
+      <section class="top-grid">
+        <!-- CHAT LEFT -->
+        <section class="chat-section">
+          <div class="chat-container">
+            <div class="chat-header">
+              <h2>
+                <i class="fas fa-robot"></i>
+                Carbon Intelligence Assistant
+              </h2>
+              <div class="ai-status">
+                <span class="status-dot"></span>
+                <span>AI active · 50+ topics</span>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div class="message ai">
+                <div class="message-avatar">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="message-content">
+                  <strong>Carbon AI:</strong>
+                  I can answer questions about sectors, climate risks, and
+                  reduction strategies. Try asking:
+                  “Which sector emits more?” or “How can companies cut emissions?”.
+                </div>
+              </div>
+            </div>
+
+            <div class="quick-questions">
+              <p>Quick questions:</p>
+              <div class="quick-buttons">
+                <button class="quick-btn">
+                  <i class="fas fa-industry"></i> Which industry pollutes more?
+                </button>
+                <button class="quick-btn">
+                  <i class="fas fa-lightbulb"></i> How to reduce emissions?
+                </button>
+                <button class="quick-btn">
+                  <i class="fas fa-earth-europe"></i> Current emission status?
+                </button>
+                <button class="quick-btn">
+                  <i class="fas fa-bus"></i> Transport sector emissions?
+                </button>
+                <button class="quick-btn">
+                  <i class="fas fa-triangle-exclamation"></i> Climate change effects?
+                </button>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <input
+                type="text"
+                id="userInput"
+                placeholder="Ask anything about emissions, sectors, or climate risks…"
+                autocomplete="off"
+              />
+              <button id="sendBtn">
+                <i class="fas fa-paper-plane"></i>
+                Ask AI
+              </button>
+            </div>
+
+            <div class="query-examples">
+              Examples: “Which sector emits more?”, “Impact of EVs on transport”,
+              “What can I do personally?”
+            </div>
+
+            <!-- INSIGHT PANELS: CLIMATE NEWS + GREEN MARKET INDEX -->
+            <div class="insight-panels">
+              <!-- Climate news -->
+              <div class="news-panel">
+                <div class="panel-header">
+                  <i class="fas fa-newspaper"></i>
+                  Climate &amp; Carbon Headlines
+                </div>
+                <div class="news-ticker-wrapper">
+                  <div class="news-ticker" id="newsTicker">
+                    <!-- Filled by JS -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Green Market Index / stock prices -->
+              <div class="market-panel">
+                <div class="panel-header">
+                  <i class="fas fa-chart-line"></i>
+                  Green Market Index
+                </div>
+                <div class="market-ticker" id="marketTicker">
+                  <!-- Filled by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CHART + CALCULATOR RIGHT -->
+        <section class="chart-section">
+          <div class="chart-container">
+            <div class="chart-header">
+              <div class="chart-title-block">
+                <h2>
+                  <i class="fas fa-chart-column"></i>
+                  Emissions by Sector
+                </h2>
+                <p class="chart-subtitle">
+                  Simulated annual profiles across energy, transport,
+                  manufacturing, agriculture and more.
+                </p>
+              </div>
+              <div class="chart-controls">
+                <button class="chart-btn active" data-mode="annual">
+                  <i class="fas fa-calendar"></i> Annual
+                </button>
+                <button class="chart-btn" data-mode="monthly">
+                  <i class="fas fa-calendar-week"></i> Monthly
+                </button>
+                <button id="refresh-chart">
+                  <i class="fas fa-rotate-right"></i> Reset
+                </button>
+              </div>
+            </div>
+            <div class="chart-area">
+              <canvas id="emissionChart"></canvas>
+            </div>
+          </div>
+
+          <!-- CALCULATOR CARD -->
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <h2>
+                <i class="fas fa-calculator"></i>
+                Personal Footprint Estimator
+              </h2>
+              <p>Estimate your monthly &amp; yearly CO₂ based on simple inputs.</p>
+            </div>
+            <div class="calculator-body">
+              <div class="calc-row">
+                <label for="input-electricity">
+                  Monthly electricity (kWh)
+                </label>
+                <input
+                  type="number"
+                  id="input-electricity"
+                  placeholder="e.g. 200"
+                  min="0"
+                />
+              </div>
+              <div class="calc-row">
+                <label for="input-fuel">
+                  Monthly fuel use (litres of petrol)
+                </label>
+                <input
+                  type="number"
+                  id="input-fuel"
+                  placeholder="e.g. 40"
+                  min="0"
+                />
+              </div>
+              <div class="calc-row">
+                <label for="input-travel">
+                  Monthly travel distance (km)
+                </label>
+                <input
+                  type="number"
+                  id="input-travel"
+                  placeholder="e.g. 300"
+                  min="0"
+                />
+              </div>
+              <button id="calc-btn" class="calc-btn">
+                <i class="fas fa-chart-line"></i>
+                Calculate impact
+              </button>
+              <div id="calc-result" class="calc-result">
+                Enter your data and click "Calculate impact" to see an estimate.
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- INDUSTRIES GRID -->
+      <section class="industries-section">
+        <h2>
+          <i class="fas fa-industry"></i>
+          Sector snapshot
+        </h2>
+        <p class="section-subtitle">
+          Annual emissions and trend signals by sector. Values are simulated but
+          keep realistic proportions across industries.
+        </p>
+        <div class="industries-grid" id="industriesGrid">
+          <!-- Filled by script.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About</h3>
+          <p>
+            Compact carbon-intelligence layer, combining sector analytics with
+            an explainable AI assistant for quick decision support.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Developer</h3>
+          <p><strong>Shreyansh Saurav</strong></p>
+          <p>FullStack &amp; AImL developer</p>
+          <p>Open to feedback, collaboration and roles.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Context</h3>
+          <p>Stride Labs: HackForward 2025 · Round 2</p>
+          <p>Focus: emissions by sector, live-like updates, AI Q&amp;A.</p>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 Carbon Intelligence Dashboard · Built for demonstration and learning.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+</body>
+</html>
