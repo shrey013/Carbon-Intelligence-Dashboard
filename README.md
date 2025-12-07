@@ -1,6 +1,9 @@
 # 🌍 Carbon Intelligence Dashboard  
 ### FullStack & AIML Project • Stride Labs – HackForward 2025 Submission
 
+🔗 **Live Demo (Netlify):** https://luxury-sprinkles-9aa15b.netlify.app/ 
+📦 **GitHub Repository:** https://github.com/shrey013/Carbon-Intelligence-Dashboard
+
 An end-to-end **full-stack climate analytics dashboard** built to show **real-time emissions**, sector insights, animated data visuals, and an **AI-powered Carbon Intelligence Assistant**. Designed with a modern dark UI, interactive elements, and smooth animations.
 
 This project fulfills the hackathon requirement:  
@@ -176,7 +179,7 @@ This project can be deployed on:
 ### Free Backend:
 - Render  
 - Railway  
-- Cyclic.sh  
+- Choreo 
 
 ### Free Frontend:
 - Netlify  

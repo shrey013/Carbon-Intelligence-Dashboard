@@ -1,4 +1,8 @@
 # 🚀 RUN GUIDE — Carbon Intelligence Dashboard  
+
+🔗 **Live Demo (Netlify):** https://luxury-sprinkles-9aa15b.netlify.app/ 
+📦 **GitHub Repository:** https://github.com/shrey013/Carbon-Intelligence-Dashboard
+
 ### How to Download, Install, Run & Fix Errors (Beginner Friendly)
 
 This guide explains **exactly how to run the full project** on any computer.
