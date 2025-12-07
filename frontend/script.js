@@ -8,7 +8,9 @@ const SECTORS = [
 ];
 
 // backend base URL
-const API_BASE_URL = "http://localhost:5000";
+// const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://93151c73-f058-424f-8c2d-b492b9ec1037.e1-us-east-azure.choreoapps.dev";
+
 
 // Demo climate headlines (static but animated like live)
 const NEWS_HEADLINES = [
